@@ -1,14 +1,16 @@
 import express from 'express';
-
+import {serverConfig} from './config';
+import apirouter from './routes/index.router';
 const app = express();
 
-const port = 3000;
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-    console.log('Hello World!');
+    res.send('Server is up and running!');
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.use('/api',apirouter);
+
+
+app.listen(serverConfig.PORT, () => {
+    console.log(`Example app listening at http://localhost:${serverConfig.PORT}`);
 }); 

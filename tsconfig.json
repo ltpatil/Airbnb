@@ -44,7 +44,7 @@
   "include": [
     "src/**/*.ts", 
     "src/**/*.tsx"
-  ],
+, "src/routes/index.router.ts"  ],
   "exclude": [
     "node_modules"
   ]
