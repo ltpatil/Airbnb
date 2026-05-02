@@ -44,7 +44,7 @@
   "include": [
     "src/**/*.ts", 
     "src/**/*.tsx"
-, "src/routes/index.router.ts"  ],
+, "src/routes/index.router.ts", "src/config/database.js"  ],
   "exclude": [
     "node_modules"
   ]
