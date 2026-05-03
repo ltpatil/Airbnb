@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { create_Hotel_Service, find_Hotel_byID_Service, getAll_Hotels_Service } from '../services/hotels.services';
+import { create_Hotel_Service, find_Hotel_byID_Service, getAll_Hotels_Service, softDelete_Hotel_byID_Service } from '../services/hotels.services';
 
 export async function create_Hotel_Handler(req : Request, res : Response, next : NextFunction){
     
@@ -16,7 +16,7 @@ export async function find_Hotel_byID_Handler(req : Request, res : Response, nex
     
     const hotel = await find_Hotel_byID_Service(Number(req.params.id));
 
-    res.status(201).json({
+    res.status(200).json({
         message : 'Hotel found Succesfully !!!',
         data : hotel,
         success : true
@@ -27,9 +27,20 @@ export async function getALL_Hotels_Handler(req : Request, res : Response, next 
     
     const hotels = await getAll_Hotels_Service();
 
-    res.status(201).json({
+    res.status(200).json({
         message : 'Hotels found Succesfully !!!',
         data : hotels,
+        success : true
+    });
+}
+
+export async function softDelete_Hotel_byID_Handler(req : Request, res : Response, next : NextFunction){
+    
+    const hotel = await softDelete_Hotel_byID_Service(Number(req.params.id));
+
+    res.status(200).json({
+        message : 'Hotel deleted Succesfully !!!',
+        data : hotel,
         success : true
     });
 }
