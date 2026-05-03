@@ -2,7 +2,7 @@ import {z } from "zod";
 import { NextFunction, Request, Response} from "express";
 import logger from "../config/logger.config";
 
-export const pingValidator = (bodyModel : z.ZodType) =>{
+export const requestValidator = (bodyModel : z.ZodType) =>{
     return async (req : Request, res : Response, next : NextFunction) =>{
         try {
             logger.info("Validating Body ---")

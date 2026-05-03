@@ -1,10 +1,10 @@
 import express from 'express';
 import { pingHandler } from '../../controllers/ping.contoller';
-import { pingValidator } from '../../validators/ping.validators';
+import { requestValidator } from '../../validators/requestvalidators';
 import { pingSchema } from '../../validators/ping.schema';
 
 const pingRouter = express.Router();
 
-pingRouter.get('/',pingValidator(pingSchema), pingHandler);
+pingRouter.get('/',requestValidator(pingSchema), pingHandler);
 
 export default pingRouter;
